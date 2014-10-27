@@ -1,12 +1,12 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('ScheduleCtrl', function($scope) {
 })
 
 .controller('UpdatesCtrl', function($scope) {
 })
 
-.controller('AdditionCtrl', function($scope) {
+.controller('MapsCtrl', function($scope) {
 })
 
 .controller('ConferenceCtrl', function($scope, Conference) {

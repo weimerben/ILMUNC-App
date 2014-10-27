@@ -1,9 +1,10 @@
 <ion-view title="Conference">
-  <ion-content>
-   <ion-list>
-      <ion-item ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/conference/{{conference.id}}">
-        {{friends.name}}
-      </ion-item>
+  <ion-content class="padding">
+  	<h1>Conference</h1>
+   	<ion-list>
+      	<ion-item ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/conference/{{conference.id}}">
+        	{{friends.name}}
+     	</ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
