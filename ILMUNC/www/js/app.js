@@ -59,16 +59,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.updates', {
-      url: '/updates',
-      views: {
-        'tab-updates': {
-          templateUrl: 'templates/tab-updates.html',
-          controller: 'UpdatesCtrl'
-        }
-      }
-    })
-
     .state('tab.conference', {
       url: '/conference',
       views: {
@@ -79,15 +69,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.conference-detail', {
-      url: '/conference/:conferenceId',
+    .state('tab.updates', {
+      url: '/updates',
       views: {
-        'tab-conference': {
-          templateUrl: 'templates/conference-detail.html',
-          controller: 'ConferenceDetailCtrl'
+        'tab-updates': {
+          templateUrl: 'templates/tab-updates.html',
+          controller: 'UpdatesCtrl'
         }
       }
-    });
+    })
 
     
 

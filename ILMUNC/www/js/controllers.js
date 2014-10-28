@@ -9,10 +9,5 @@ angular.module('starter.controllers', [])
 .controller('MapsCtrl', function($scope) {
 })
 
-.controller('ConferenceCtrl', function($scope, Conference) {
-	$scope.conference = Conference.all();
-})
-
-.controller('ConferenceDetailCtrl', function($scope, $stateParams, Conference) {
-  $scope.conference = Conference.get($stateParams.conferenceId);
+.controller('ConferenceCtrl', function($scope) {
 });
