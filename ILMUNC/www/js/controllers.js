@@ -10,4 +10,4 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ConferenceCtrl', function($scope) {
-});
+})

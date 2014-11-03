@@ -79,7 +79,41 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    
+    .state('tab.thursday', {
+      url: '/thursday',
+      views: {
+        'tab-schedule': {
+          templateUrl: 'templates/thursday.html',
+        }
+      }
+    })
+
+    .state('tab.friday', {
+      url: '/friday',
+      views: {
+        'tab-schedule': {
+          templateUrl: 'templates/friday.html',
+        }
+      }
+    })
+
+    .state('tab.saturday', {
+      url: '/saturday',
+      views: {
+        'tab-schedule': {
+          templateUrl: 'templates/saturday.html',
+        }
+      }
+    })
+
+    .state('tab.sunday', {
+      url: '/sunday',
+      views: {
+        'tab-schedule': {
+          templateUrl: 'templates/sunday.html',
+        }
+      }
+    })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/schedule');
