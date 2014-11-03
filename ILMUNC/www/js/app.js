@@ -115,6 +115,95 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+    .state('tab.social_events', {
+      url: '/social_events',
+      views: {
+        'tab-conference': {
+          templateUrl: 'templates/social_events.html',
+        }
+      }
+    })
+
+    .state('tab.merchandise', {
+      url: '/merchandise',
+      views: {
+        'tab-conference': {
+          templateUrl: 'templates/merchandise.html',
+        }
+      }
+    })
+
+    .state('tab.penn_tours', {
+      url: '/penn_tours',
+      views: {
+        'tab-conference': {
+          templateUrl: 'templates/penn_tours.html',
+        }
+      }
+    })
+
+    .state('tab.quick_reference', {
+      url: '/quick_reference',
+      views: {
+        'tab-conference': {
+          templateUrl: 'templates/quick_reference.html',
+        }
+      }
+    })
+
+    .state('tab.ground_floor', {
+      url: '/ground_floor',
+      views: {
+        'tab-maps': {
+          templateUrl: 'templates/ground_floor.html',
+        }
+      }
+    })
+
+    .state('tab.mezzanine_floor', {
+      url: '/mezzanine_floor',
+      views: {
+        'tab-maps': {
+          templateUrl: 'templates/mezzanine_floor.html',
+        }
+      }
+    })
+
+    .state('tab.ballroom_floor', {
+      url: '/ballroom_floor',
+      views: {
+        'tab-maps': {
+          templateUrl: 'templates/ballroom_floor.html',
+        }
+      }
+    })
+
+    .state('tab.logan_rooms', {
+      url: '/logan_rooms',
+      views: {
+        'tab-maps': {
+          templateUrl: 'templates/logan_rooms.html',
+        }
+      }
+    })
+
+    .state('tab.salon_rooms', {
+      url: '/salon_rooms',
+      views: {
+        'tab-maps': {
+          templateUrl: 'templates/salon_rooms.html',
+        }
+      }
+    })
+
+    .state('tab.around_hotel', {
+      url: '/around_hotel',
+      views: {
+        'tab-maps': {
+          templateUrl: 'templates/around_hotel.html',
+        }
+      }
+    })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/schedule');
 
