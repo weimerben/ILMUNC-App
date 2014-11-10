@@ -1,0 +1,4 @@
+git add ilmunc.png
+git commit -m 'add png file'
+git remote add origin https://github.com/ilmunc.git
+git push -u origin master
