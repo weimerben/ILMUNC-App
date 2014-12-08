@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
+.run(function ($ionicPlatform, TwitterLib) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -209,3 +209,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 });
 
+
+
+//angular.module('twitter', ['ionic', 'twitterLib'])
+
+//
+// HERE ARE THE CONFIGURATION SETTINGS FOR OAUTH
+// REPLACE  THESE VALUES WITH YOUR KEYS FROM TWITTER
+//
+angular.module('starter').constant('myAppConfig', {
+    oauthSettings: {
+        consumerKey: 'o9PPNGDobkBBXvoHMbOpllKIY',
+        consumerSecret: 'gWpc3padhfbSMODFxHHiJj8eu155IUn0mknr32Nf3QzJVlhuss',
+        requestTokenUrl: 'https://api.twitter.com/oauth/request_token',
+        authorizationUrl: "https://api.twitter.com/oauth/authorize",
+        accessTokenUrl: "https://api.twitter.com/oauth/access_token",
+        callbackUrl: "callbackUrl"
+    }
+});
