@@ -199,7 +199,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('tab.around_hotel', {
       url: '/around_hotel',
       views: {
-        'tab-maps': {
+        'tab-conference': {
           templateUrl: 'templates/around_hotel.html',
         }
       }
