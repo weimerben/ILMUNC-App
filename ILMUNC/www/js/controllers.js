@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
         /**
          *
          */
-        $scope.doLogin = function () {
+    /*    $scope.doLogin = function () {
             TwitterLib.init().then(function (_data) {
                 alert(JSON.stringify(_data));
             }, function error(_error) {
@@ -26,7 +26,7 @@ angular.module('starter.controllers', [])
         /**
          *
          */
-        $scope.doLogout = function () {
+    /*    $scope.doLogout = function () {
             TwitterLib.logOut();
         };
         /**
@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
                 }
             };
             TwitterLib.apiGetCall(options).then(function (_data) {
-                alert("doStatus success");
+                //alert("doStatus success");
                 $scope.items = _data;
 
             }, function (_error) {
@@ -51,12 +51,12 @@ angular.module('starter.controllers', [])
         /**
          *
          */
-        $scope.doTweet = function () {
+     /*   $scope.doTweet = function () {
             TwitterLib.tweet("Sample tweet " + new Date()).then(function (_data) {
                 alert("tweet success");
 
             }, function (_error) {
                 alert("tweet error" + JSON.stringify(_error));
             });
-        };
+        };*/
     })
