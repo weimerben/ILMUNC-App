@@ -22,11 +22,10 @@
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
-    <script type="text/javascript" src="js/PushNotification.js"></script>
+   <script type="text/javascript" src="js/PushNotification.js"></script>
     <script>
     function initPushwoosh() {
       var pushNotification = window.plugins.pushNotification;
-      alert("initPushwoosh being called");
       if(device.platform == "Android")
       {
         var pushNotification = window.plugins.pushNotification;
@@ -76,12 +75,10 @@
                   var deviceToken = status['deviceToken'];
                   console.warn('registerDevice: ' + deviceToken);
                   window.localStorage['Pushwoosh'] = true;
-                  alert("success");
               },
               function(status) {
                   console.warn('failed to register : ' + JSON.stringify(status));
                   alert(JSON.stringify(['failed to register ', status]));
-                  alert("failure");
               }
           );
         }
