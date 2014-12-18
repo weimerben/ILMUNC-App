@@ -56,10 +56,11 @@
         document.addEventListener('push-notification', function(event) {
 
           //get the notification payload
-          var notification = event.notification;
+        var notification = event.notification;
 
           //display alert to the user for example
-          alert(notification.aps.alert);
+        //  alert(notification.aps.alert);
+        navigator.notification.alert(notification.aps.alert, alertDismissed, "Alert");
 
           //clear the app badge
           pushNotification.setApplicationIconBadgeNumber(0);
@@ -78,7 +79,9 @@
               },
               function(status) {
                   console.warn('failed to register : ' + JSON.stringify(status));
-                  alert(JSON.stringify(['failed to register ', status]));
+                //  alert(JSON.stringify(['failed to register ', status]));
+                navigator.notification.alert(JSON.stringify(['failed to register ', status]),
+                alertDismissed, "Alert");
               }
           );
         }
@@ -86,6 +89,8 @@
         //reset badges on app start
         pushNotification.setApplicationIconBadgeNumber(0);
       }
+    }
+    function alertDismissed() {
     }
    </script>
   </head>
