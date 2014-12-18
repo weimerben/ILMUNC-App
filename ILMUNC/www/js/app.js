@@ -11,7 +11,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    alert("working");
     initPushwoosh();
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -207,7 +206,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/schedule');
+  $urlRouterProvider.otherwise('/tab/updates');
 
 });
 
