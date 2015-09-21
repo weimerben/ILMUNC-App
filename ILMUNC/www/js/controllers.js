@@ -1,5 +1,80 @@
 angular.module('starter.controllers', [])
 
+.controller('LoginController', function ($scope, $state, $rootScope, $ionicLoading) {
+    if ($rootScope.isLoggedIn) {
+        $state.go('tab.updates');
+    }
+
+    $scope.user = {
+        username: null,
+        password: null
+    };
+
+    $scope.error = {};
+
+    $scope.login = function() {
+
+    // var user = new Parse.User();
+    // user.set("username", "user@gmail.com");
+    // user.set("password", "pass");
+
+    // user.signUp(null, {
+    //         success: function(user) {
+    //         },
+    //         error: function(user, err) {
+    //             alert(err.code);
+    //         }
+    //       });
+
+        $scope.loading = $ionicLoading.show({
+            content: 'Logging in',
+            animation: 'fade-in',
+            showBackdrop: true,
+            maxWidth: 200,
+            showDelay: 0
+        });
+
+        var user = $scope.user;
+
+        Parse.User.logIn(('' + user.username).toLowerCase(), user.password, {
+            success: function(user) {
+                $ionicLoading.hide();
+                $rootScope.user = user;
+                $rootScope.isLoggedIn = true;
+                $state.go('tab.updates', {
+                    clear: true
+                });
+            },
+            error: function(user, err) {
+                $ionicLoading.hide();
+                // The login failed. Check error to see why.
+                if (err.code === 101) {
+                    $scope.error.message = 'Invalid login credentials';
+                } else {
+                    alert(err.code);
+                    $scope.error.message = 'An unexpected error has ' +
+                        'occurred, please try again.';
+                }
+                $scope.$apply();
+            }
+        });
+    };
+
+    $scope.forgot = function() {
+        $state.go('app.forgot');
+    };
+})
+
+.controller('MainController', function ($scope, $state, $rootScope, $stateParams) {
+
+    $scope.logout = function() {
+        Parse.User.logOut();
+        $rootScope.user = null;
+        $rootScope.isLoggedIn = false;
+        $state.go('login', {});
+    };
+})
+
 .controller('ScheduleCtrl', function($scope) {
 })
 

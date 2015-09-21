@@ -7,11 +7,12 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function ($ionicPlatform, TwitterLib) {
+.run(function ($ionicPlatform, TwitterLib, $state, $rootScope) {
   $ionicPlatform.ready(function() {
+    // initPushwoosh();
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    initPushwoosh();
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
@@ -19,7 +20,56 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    // Initialize push notifications!
+
+    // first, lets initialize parse. fill in your parse appId and clientKey
+
+    parsePlugin.initialize(uGyZ1vxsZMfRgEK4z0iQsmtHDXJd6SYciADRlnZd, CLQiaF6zakkJ5SLejcxMJTPaxnWsYUIM5E8nxbH0, function() {
+      alert('Parse initialized successfully.');
+
+
+      parsePlugin.subscribe('SampleChannel', function() {
+        alert('Successfully subscribed to SampleChannel.');
+
+
+          parsePlugin.getInstallationId(function(id) {
+            // update the view to show that we have the install ID
+            alert('Retrieved install id: ' + id);
+
+              /**
+               * Now you can construct an object and save it to your own services, or Parse, and correlate users to parse installations
+               * 
+               var install_data = {
+                  installation_id: id,
+                  channels: ['SampleChannel']
+               }
+               *
+               */
+
+          }, function(e) {
+            alert('Failure to retrieve install id.');
+          });
+
+      }, function(e) {
+          alert('Failed trying to subscribe to SampleChannel.');
+      });
+
+    }, function(e) {
+        alert('Failure to initialize Parse.');
+    });
+
   });
+  Parse.initialize('uGyZ1vxsZMfRgEK4z0iQsmtHDXJd6SYciADRlnZd', '0zAB2Mf7j4z9jEaC9PeKlYK7SopFlSUQrxcPEHpz');
+  var currentUser = Parse.User.current();
+  $rootScope.user = null;
+  $rootScope.isLoggedIn = false;
+
+  if (currentUser) {
+      $rootScope.user = currentUser;
+      $rootScope.isLoggedIn = true;
+      $state.go('tab.updates');
+  }
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -29,6 +79,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
+
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginController'
+  })
 
     // setup an abstract state for the tabs directive
     .state('tab', {
@@ -170,9 +226,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           templateUrl: 'templates/around_hotel.html',
         }
       }
-    })
+    });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/updates');
+  $urlRouterProvider.otherwise('/login');
 
 });
 
