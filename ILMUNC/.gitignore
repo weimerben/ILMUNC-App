@@ -2,7 +2,8 @@
 # http://git-scm.com/docs/gitignore
 
 node_modules/
-platforms/
-!platforms/android/res/
-!platforms/ios/ILMUNC/splash/
+!application/
+platforms/*
+!platforms/android/res/*
+!platforms/ios/ILMUNC/splash/*
 plugins/
